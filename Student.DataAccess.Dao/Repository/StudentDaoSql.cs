@@ -1,5 +1,6 @@
 ﻿using Student.Common.Logic.Log4net;
 using Student.Common.Logic.Model;
+using Student.DataAccess.Dao.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Student.DataAccess.Dao.Repository
 {
-    public class StudentDaoSql
+    public class StudentDaoSql : IRepository
     {
         private readonly ILogger Log;
         private readonly string connectionString;
