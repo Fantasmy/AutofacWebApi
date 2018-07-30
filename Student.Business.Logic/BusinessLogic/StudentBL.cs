@@ -36,24 +36,62 @@ namespace Student.Business.Logic.BusinessLogic
             }
         }
 
-        public int Delete(int id)
+        public int Delete(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.Delete(id);
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error(ex);
+                throw;
+            }
         }
 
         public List<Alumno> GetAll()
         {
-            throw new NotImplementedException();
+            try
+            {
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.GetAll();
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw;
+            }
         }
 
-        public Alumno SelectById(int id)
+        public Alumno SelectById(Guid id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.SelectById(id);
+            }
+            catch (Exception ex)
+            {
+
+                Log.Error(ex);
+                throw;
+            }
         }
 
-        public Alumno Update(int id, Alumno entity)
+        public Alumno Update(Guid id, Alumno entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+                return repository.Update(id, entity);
+            }
+            catch (Exception ex)
+            {
+                Log.Error(ex);
+                throw;
+            }
         }
     }
 }

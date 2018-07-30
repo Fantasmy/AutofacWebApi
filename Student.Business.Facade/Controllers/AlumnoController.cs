@@ -1,5 +1,6 @@
 ﻿using Student.Business.Logic.BusinessLogic;
 using Student.Common.Logic.Log4net;
+using Student.Common.Logic.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,30 +29,46 @@ namespace Student.Business.Facade.Controllers
         [HttpGet()]
         public IHttpActionResult GetAll()
         {
+            // HACER TRY CATCH
             Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
-            return Ok();
-            //return Ok(studentBl.);
+
+            return Ok(studentBl.GetAll());
         }
 
         // GET: api/Alumno/5
-        public string Get(int id)
+        [HttpGet()]
+        [Route("api/Alumno/GetById/{guid}")]
+        public IHttpActionResult GetById(Guid id)
         {
-            return "value";
+            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            return Ok(studentBl.SelectById(id));
         }
 
         // POST: api/Alumno
-        public void Post([FromBody]string value)
+        [HttpPost()]
+        [Route("api/Alumno/Post")]
+        public IHttpActionResult Post(Alumno entity)
         {
+            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            return Ok(studentBl.Create(entity));
         }
 
         // PUT: api/Alumno/5
-        public void Put(int id, [FromBody]string value)
+        [HttpPut()]
+        [Route("api/Alumno/Update/{guid}")]
+        public IHttpActionResult Put(Guid id, Alumno entity)
         {
+            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            return Ok(studentBl.Update(id, entity));
         }
 
         // DELETE: api/Alumno/5
-        public void Delete(int id)
+        [HttpDelete()]
+        [Route("api/Alumno/Remove/{guid}")]
+        public IHttpActionResult Remove(Guid id)
         {
+            Log.Debug("" + System.Reflection.MethodBase.GetCurrentMethod().Name);
+            return Ok(studentBl.Delete(id));
         }
     }
 }

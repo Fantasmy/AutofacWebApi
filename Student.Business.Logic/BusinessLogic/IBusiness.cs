@@ -10,9 +10,9 @@ namespace Student.Business.Logic.BusinessLogic
     public interface IBusiness
     {
         int Create(Alumno entity);
-        Alumno SelectById(int id);
+        Alumno SelectById(Guid id);
         List<Alumno> GetAll();
-        Alumno Update(int id, Alumno entity);
-        int Delete(int id);
+        Alumno Update(Guid id, Alumno entity);
+        int Delete(Guid id);
     }
 }

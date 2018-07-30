@@ -9,7 +9,11 @@ namespace Student.DataAccess.Dao.Interfaces
 {
     public interface IRepository
     {
-        int Create(Alumno alumno);
-        
+        int Create(Alumno entity);
+        Alumno SelectById(Guid id);
+        List<Alumno> GetAll();
+        Alumno Update(Guid id, Alumno entity);
+        int Delete(Guid id);
+
     }
 }
